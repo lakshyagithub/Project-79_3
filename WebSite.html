@@ -1,0 +1,191 @@
+<html><head>
+    <title>Pizzeria</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>body {
+        background-color: rgba(255, 255, 255, 0);
+    }
+    
+    .topnav {
+        overflow: hidden;
+        background-color: #333;
+        position:sticky;
+        top: 0;
+        width: 100%;
+      }
+      
+      .topnav a {
+        float: left;
+        color: #f2f2f2;
+        font-family: cursive;
+        text-align: center;
+        padding: 14px 16px;
+        text-decoration: none;
+        font-size: 17px;
+      }
+      
+      .topnav a:hover {
+        background-color: #bbb;
+        color: black;
+      }
+    
+      .topnav-right {
+        float: Center;
+      }
+    
+      .row::after {
+        content: "";
+        clear: both;
+        display: table;
+      }
+      .img_div{
+        float: left;
+        width: 50%;
+        padding: 5px;
+      }
+      .menu_div{
+        float: right;
+        width: 50%;
+        padding: 160px;
+        color: honeydew;
+        font-size: 25px;
+        font-family: cursive;
+      }
+      #menu_list{
+        background-color:#f5c71a;
+        color:black; 
+        width: 200px;
+        border: none;
+      }
+    
+      .newRow::after {
+        content: "";
+        clear: both;
+        display: table;
+    }
+    
+      .block1{
+        float: left;
+        width: 20%;
+        padding: 5px;
+      }
+      .block2{
+        float: left;
+        width: 80%;
+        padding: 5px;
+        color: honeydew;
+        font-size: 25px;
+        font-family: cursive;
+      }
+    
+      #add_toppings{
+        width:150px;
+        height:100px;
+        border: none;
+        background-color:#e2062c;
+        color:black;
+        font-size: 15px;
+        font-family: cursive;
+      }
+    
+      #add_item {
+        font-family: cursive;
+        font-size: 15px;
+        line-height: 20px;
+        width: 80%;
+        height: 50px;
+        color: #ffffff;
+        background: none;
+        border: none;
+        border-bottom: 1px solid rgb(223, 205, 205);
+        outline: none;
+        color: black;
+     }
+    
+    [placeholder]:focus::-webkit-input-placeholder {
+        transition: text-indent 0.4s 0.4s ease; 
+        text-indent: -100%;
+        opacity: 1;
+        color: rgb(15, 12, 12);
+     }
+    
+    #im1{
+        width:100px;
+        height: 80px;
+    }
+    #display_menu{
+        color: black;
+    }</style>
+<script>menu_list_array = ["Veg Margherita Pizza","peppy paneer Pizza"];
+                    
+
+    function getmenu(){
+    var htmldata=["perry perry Pizza"];
+    menu_list_array.sort();
+            for(var i=0;i<menu_list_array.length;i++){
+                htmldata=htmldata+ '<br>'+ menu_list_array[i] 
+            }
+            document.getElementById("display_menu").innerHTML = htmldata;
+            //give the appropriate id name as display_menu  
+    }
+    
+    function add_item(){
+    var htmldata;
+    var item=document.getElementById("add_item").value;
+            // use the sort function as - menu_list_array.sort();
+            htmldata=""
+            for(var i=0;i<menu_list_array.length;i++){
+                htmldata=htmldata+'<br>'+imgtags+ menu_list_array[i];
+            }
+             document.getElementById("").innerHTML = htmldata;		
+          }
+    
+    function add_top(){
+        var item=document.getElementById("add_item").value;
+        menu_list_array.push(item);
+        add_item();
+    }
+    </script>
+</head>
+
+<body>
+    <div class="topnav">
+        <a class="active" href="#">Pizzeria</a>
+        <div class="topnav-right">
+         <a href="#viewblock">View Menu</a>
+         <a href="#addTopings">Add Menu</a>
+        </div>
+    </div>
+
+    <div class="row" id="viewblock">
+        <div class="img_div"> 
+            <img class="img-responsive" height="" width="190" src="https://th.bing.com/th/id/R.ccba32c137b7981274f1d698006d07df?rik=7sGJSz5U8phk3Q&riu=http%3a%2f%2fimages.clipartpanda.com%2fpizza-clip-art-yTkEa74TE.jpeg&ehk=w5tGXWejDksMlrFWiTR3npoXjRZpwBMzHJXx%2fPBfQWA%3d&risl=&pid=ImgRaw&r=0">
+        </div>
+        <div class="menu_div">
+            <button id="menu_list" onclick="getmenu()">Show Menu</button>
+           <div id="display_menu"></div>
+        </div>
+    </div>
+    
+    <div class="newRow" id="addTopings">
+        <div class="block1">
+            <input id="add_item" placeholder="Type here to add toppings?"> 
+            <button class="btn btn-success" onclick="add_top()">Add suggestion</button>
+        </div>
+		
+        <div class="block2">
+            <div id="display_addedmenu">
+            </div>
+        </div>
+        
+    </div>
+
+    <div>
+        <img class="img-responsive" src="https://th.bing.com/th/id/R.dafa46ec238b46fc69257ccc5982e3be?rik=2oZK6lNNWxzOFQ&riu=http%3a%2f%2flistdose.co%2fwp-content%2fuploads%2f2013%2f07%2ftoppings_PRINT2.jpg&ehk=DlqHysoxF6Kx7d6amqlweMgvGFW9pkK61TosW5MaWbA%3d&risl=&pid=ImgRaw&r=0">
+    </div>
+
+
+</body></html>
